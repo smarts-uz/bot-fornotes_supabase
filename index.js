@@ -47,7 +47,7 @@ bot.on('message', async (msg) => {
   }
 
   if (msg.text === '/start') {
-    addUser(username)
+    await addUser(username)
   }
 
   if (msg.text === '/notes') {
@@ -60,7 +60,7 @@ bot.on('message', async (msg) => {
       action: 'add',
     }
 
-    bot.sendMessage(chatId, 'Введите текст:')
+   await bot.sendMessage(chatId, 'Введите текст:')
   }
 
   if (msg.text === '/rm') {

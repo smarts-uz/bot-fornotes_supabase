@@ -4,11 +4,18 @@
 
 import { serve } from "https://deno.land/std@0.168.0/http/server.ts"
 import TelegramBot from '../../supabase/node_modules/node-telegram-bot-api/lib'
+import {string} from "https://esm.sh/v128/@types/prop-types@15.7.5/index.d.ts";
 
-const bot = new TelegramBot(Deno.env.get("BOT_TOKEN"), { polling: true})
+const bot = new TelegramBot(Deno.env.get(""), { polling: true})
+
+interface IReadLineList {
+  username: string
+}
+
+
 const readLineList = {}
 
-serve(async (req) => {
+serve(async (req:Request) => {
 
   try {
     bot.setMyCommands([
@@ -18,7 +25,7 @@ serve(async (req) => {
       { command: '/rm', description: 'Удалить' }
     ])
 
-    bot.on('message', async (msg) => {
+    bot.on('message', async (msg:any) => {
       const {id: chatId, username} = msg.chat
       const readLine = readLineList[username]
 

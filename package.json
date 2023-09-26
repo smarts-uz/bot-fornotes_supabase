@@ -17,5 +17,9 @@
     "node-telegram-bot-api": "^0.61.0",
     "nodemon": "^2.0.21"
   },
-  "type": "module"
+  "type": "module",
+  "devDependencies": {
+    "ts-node": "^10.9.1",
+    "typescript": "^5.2.2"
+  }
 }
